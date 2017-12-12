@@ -16,7 +16,10 @@ public class DataController {
 
         Integer totalRecords = dataModelList.size();
 
+        long num2015Events = dataModelList.stream().filter(dataModel -> dataModel.iyear.equals("2015")).count();
+
         model.addAttribute("totalRecords", totalRecords);
+        model.addAttribute("num2015Events", num2015Events);
         return "data";
     }
 }
