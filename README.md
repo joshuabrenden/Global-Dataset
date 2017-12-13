@@ -1,2 +1,2 @@
 # global-dataset
-Experimenting with datasets on Kaggle.
+Experimenting with datasets on Kaggle. (early states, in progress)
