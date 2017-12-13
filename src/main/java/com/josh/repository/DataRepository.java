@@ -34,6 +34,10 @@ public class DataRepository {
         return getAllRecords().stream().filter(dataModel -> dataModel.iyear.equals(year)).count();
     }
 
+    public long getTotalRecordsForCountry(String country) {
+        return getAllRecords().stream().filter((dataModel -> dataModel.country_txt.equals(country))).count();
+    }
+
 
     private static class DataHolder {
         private static DataHolder instance = null;

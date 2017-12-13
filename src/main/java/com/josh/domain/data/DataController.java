@@ -15,8 +15,9 @@ public class DataController {
 
     @RequestMapping("/data")
     public String viewData(Model model) {
-        model.addAttribute("totalRecords", statisticsService.getTotalEvents());
-        model.addAttribute("num2015Events", statisticsService.getTotalEventsForYear("2015"));
+        model.addAttribute("totalRecords", statisticsService.getTotalEventsCount());
+        model.addAttribute("num2015Events", statisticsService.getTotalEventsCountForYear("2015"));
+        model.addAttribute("numUnitedStatesEvents", statisticsService.getTotalEventsCountForCountry("United States"));
         return "data";
     }
 }

@@ -15,7 +15,9 @@ public class TestStatisticsService extends TestCase{
 
     public static int ALL_RECORDS_COUNT = 170350;
     public static long ALL_RECORDS_2015_COUNT = 14852;
+    public static long ALL_RECORDS_UNITED_STATES_COUNT = 2758;
     public static String YEAR_2015 = "2015";
+    public static String COUNTRY = "United States";
 
     @Mock
     private DataRepository dataRepository;
@@ -29,16 +31,22 @@ public class TestStatisticsService extends TestCase{
         MockitoAnnotations.initMocks(this);
         Mockito.when(dataRepository.getTotalRecords()).thenReturn(ALL_RECORDS_COUNT);
         Mockito.when(dataRepository.getTotalRecordsForYear(YEAR_2015)).thenReturn(ALL_RECORDS_2015_COUNT);
+        Mockito.when(dataRepository.getTotalRecordsForCountry(COUNTRY)).thenReturn(ALL_RECORDS_UNITED_STATES_COUNT);
     }
 
     @Test
     public void testGetTotalRecordsShouldReturnExpectedValue() {
-        assertThat(statisticsService.getTotalEvents()).isEqualTo(ALL_RECORDS_COUNT);
+        assertThat(statisticsService.getTotalEventsCount()).isEqualTo(ALL_RECORDS_COUNT);
     }
 
     @Test
     public void testGetTotalRecordsForYearShouldReturnExpectedValueWhenPassed2015() {
-        assertThat(statisticsService.getTotalEventsForYear(YEAR_2015)).isEqualTo(ALL_RECORDS_2015_COUNT);
+        assertThat(statisticsService.getTotalEventsCountForYear(YEAR_2015)).isEqualTo(ALL_RECORDS_2015_COUNT);
+    }
+
+    @Test
+    public void testGetTotalRecordsForCountryShouldReturnExpectedValueWhenPassedUnitedStates() {
+        assertThat(statisticsService.getTotalEventsCountForCountry(COUNTRY)).isEqualTo(ALL_RECORDS_UNITED_STATES_COUNT);
     }
 
 }

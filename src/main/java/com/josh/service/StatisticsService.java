@@ -13,12 +13,16 @@ public class StatisticsService {
     @Autowired
     private DataRepository dataRepository;
 
-    public int getTotalEvents(){
+    public int getTotalEventsCount(){
         return dataRepository.getTotalRecords();
     }
 
-    public long getTotalEventsForYear(String year) {
+    public long getTotalEventsCountForYear(String year) {
         return dataRepository.getTotalRecordsForYear(year);
+    }
+
+    public long getTotalEventsCountForCountry(String country) {
+        return dataRepository.getTotalRecordsForCountry(country);
     }
 
 }
