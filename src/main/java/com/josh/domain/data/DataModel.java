@@ -1,4 +1,4 @@
-package com.josh.data;
+package com.josh.domain.data;
 
 public class DataModel {
     public String eventid;

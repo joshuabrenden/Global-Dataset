@@ -1,7 +1,9 @@
-package com.josh.data;
+package com.josh.repository.utils;
 
+import com.josh.domain.data.DataModel;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.stereotype.Component;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,12 +12,10 @@ import java.io.Reader;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by jbrenden on 12/12/2017.
- */
+@Component
 public class DataSetFileReader {
 
-    public Set<DataModel> getDataModel(String path){
+    public Set<DataModel> getDataModels(String path){
         return getDataModelFromFile(path);
     }
 
@@ -161,13 +161,14 @@ public class DataSetFileReader {
                 dataModel.INT_MISC = record.get("INT_MISC");
                 dataModel.INT_ANY = record.get("INT_ANY");
                 dataModel.related = record.get("related");
-
                 data.add(dataModel);
             }
+
+            System.out.println("Initialized repository with " + data.size() + " records.");
         } catch (FileNotFoundException fe) {
-
+            fe.printStackTrace();
         } catch (IOException ioe) {
-
+            ioe.printStackTrace();
         }
 
         return data;
