@@ -12,7 +12,7 @@ import java.util.Set;
 @Repository
 public class DataRepository {
 
-    private String pathToDataFile = "/Users/christiannabrenden/Documents/josh/globalterrorismdb_0617dist.csv";
+    private String pathToDataFile = "C:/data/globalterrorismdb_0617dist.csv";
 
     @Autowired
     private DataSetFileReader dataSetFileReader;
