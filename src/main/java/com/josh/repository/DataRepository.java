@@ -1,6 +1,7 @@
 package com.josh.repository;
 
 import com.josh.domain.data.DataModel;
+import com.josh.domain.event.Event;
 import com.josh.repository.utils.DataSetFileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import java.util.Set;
 @Repository
 public class DataRepository {
 
-    private String pathToDataFile = "C:/data/globalterrorismdb_0617dist.csv";
+    private String pathToDataFile = "/Users/christiannabrenden/Documents/josh/globalterrorismdb_0617dist.csv";
 
     @Autowired
     private DataSetFileReader dataSetFileReader;
@@ -22,7 +23,7 @@ public class DataRepository {
         }
     }
 
-    public Set<DataModel> getAllRecords(){
+    public Set<Event> getAllRecords(){
         return DataHolder.getInstance().getEvents();
     }
 
@@ -41,7 +42,7 @@ public class DataRepository {
 
     private static class DataHolder {
         private static DataHolder instance = null;
-        private static Set<DataModel> events = null;
+        private static Set<Event> events = null;
 
         protected DataHolder() {
 
@@ -55,11 +56,11 @@ public class DataRepository {
             return instance;
         }
 
-        public void setEvents(Set<DataModel> data) {
+        public void setEvents(Set<Event> data) {
             this.events = data;
         }
 
-        public Set<DataModel> getEvents() {
+        public Set<Event> getEvents() {
             if(events == null){
                 return new HashSet<>();
             } else {

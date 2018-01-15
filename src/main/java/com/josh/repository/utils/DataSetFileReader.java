@@ -1,6 +1,7 @@
 package com.josh.repository.utils;
 
 import com.josh.domain.data.DataModel;
+import com.josh.domain.event.Event;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Component;
@@ -15,17 +16,17 @@ import java.util.Set;
 @Component
 public class DataSetFileReader {
 
-    public Set<DataModel> getDataModels(String path){
+    public Set<Event> getDataModels(String path){
         return getDataModelFromFile(path);
     }
 
-    private Set<DataModel> getDataModelFromFile(String path){
-        Set<DataModel> data = new HashSet<>();
+    private Set<Event> getDataModelFromFile(String path){
+        Set<Event> data = new HashSet<>();
 
         try(Reader in = new FileReader(path)) {
             Iterable<CSVRecord> records = CSVFormat.EXCEL.withHeader().parse(in);
             for (CSVRecord record : records) {
-                DataModel dataModel = new DataModel();
+                Event dataModel = new Event();
                 dataModel.eventid = record.get("eventid");
                 dataModel.iyear = record.get("iyear");
                 dataModel.imonth = record.get("imonth");
