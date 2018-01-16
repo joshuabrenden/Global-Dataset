@@ -28,7 +28,7 @@ public class StatisticsService {
         return dataRepository.getTotalRecordsForYear(year);
     }
 
-    public long getTotalEventsCountForCountry(String country) {
+    public List<Event> getTotalEventsCountForCountry(String country) {
         return dataRepository.getTotalRecordsForCountry(country);
     }
 

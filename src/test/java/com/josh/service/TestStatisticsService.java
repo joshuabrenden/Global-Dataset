@@ -31,7 +31,6 @@ public class TestStatisticsService extends TestCase{
         MockitoAnnotations.initMocks(this);
         Mockito.when(dataRepository.getTotalRecords()).thenReturn(ALL_RECORDS_COUNT);
         Mockito.when(dataRepository.getTotalRecordsForYear(YEAR_2015)).thenReturn(ALL_RECORDS_2015_COUNT);
-        Mockito.when(dataRepository.getTotalRecordsForCountry(COUNTRY)).thenReturn(ALL_RECORDS_UNITED_STATES_COUNT);
     }
 
     @Test

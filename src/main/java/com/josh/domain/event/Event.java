@@ -1,7 +1,10 @@
 package com.josh.domain.event;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Event {
     @Id
     public String eventid;
@@ -13,7 +16,7 @@ public class Event {
     public String extended;
     public String resolution;
     public String country;
-    public String country_txt;
+    public String countryName;
     public String region;
     public String region_txt;
     public String provstate;
@@ -22,7 +25,10 @@ public class Event {
     public String longitude;
     public String specificity;
     public String vicinity;
+    @Column(length = 2000)
     public String location;
+
+    @Column(length = 2000)
     public String summary;
     public String crit1;
     public String crit2;
@@ -69,6 +75,8 @@ public class Event {
     public String gsubname2;
     public String gname3;
     public String gsubname3;
+
+    @Column(length = 2000)
     public String motive;
     public String guncertain1;
     public String guncertain2;
@@ -102,6 +110,7 @@ public class Event {
     public String weaptype4_txt;
     public String weapsubtype4;
     public String weapsubtype4_txt;
+    @Column(length = 2000)
     public String weapdetail;
     public String nkill;
     public String nkillus;
@@ -113,6 +122,7 @@ public class Event {
     public String propextent;
     public String propextent_txt;
     public String propvalue;
+    @Column(length = 2000)
     public String propcomment;
     public String ishostkid;
     public String nhostkid;
@@ -126,19 +136,25 @@ public class Event {
     public String ransomamtus;
     public String ransompaid;
     public String ransompaidus;
+    @Column(length = 2000)
     public String ransomnote;
     public String hostkidoutcome;
     public String hostkidoutcome_txt;
     public String nreleased;
+    @Column(length = 2000)
     public String addnotes;
+    @Column(length = 2000)
     public String scite1;
+    @Column(length = 2000)
     public String scite2;
+    @Column(length = 2000)
     public String scite3;
     public String dbsource;
     public String INT_LOG;
     public String INT_IDEO;
     public String INT_MISC;
     public String INT_ANY;
+    @Column(length = 2000)
     public String related;
 
     public Event() { }

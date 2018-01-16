@@ -1,8 +1,14 @@
 package com.josh.repository;
 
 import com.josh.domain.event.Event;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EventRepository extends MongoRepository<Event, String> {
-    Event findEventByEventid(String eventid);
+import java.util.List;
+
+
+@Repository
+public interface EventRepository extends JpaRepository<Event, String> {
+    List<Event> findEventsByIyear(String iyear);
+    List<Event> findEventsByCountryName(String countryName);
 }

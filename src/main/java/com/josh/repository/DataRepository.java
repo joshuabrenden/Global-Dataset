@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class DataRepository {
@@ -35,8 +37,8 @@ public class DataRepository {
         return getAllRecords().stream().filter(dataModel -> dataModel.iyear.equals(year)).count();
     }
 
-    public long getTotalRecordsForCountry(String country) {
-        return getAllRecords().stream().filter((dataModel -> dataModel.country_txt.equals(country))).count();
+    public List<Event> getTotalRecordsForCountry(String country) {
+        return getAllRecords().stream().filter(dataModel -> dataModel.countryName.equals(country)).collect(Collectors.toList());
     }
 
 

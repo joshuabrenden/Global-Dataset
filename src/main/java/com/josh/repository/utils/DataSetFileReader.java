@@ -35,7 +35,7 @@ public class DataSetFileReader {
                 dataModel.extended = record.get("extended");
                 dataModel.resolution = record.get("resolution");
                 dataModel.country = record.get("country");
-                dataModel.country_txt = record.get("country_txt");
+                dataModel.countryName = record.get("country_txt");
                 dataModel.region = record.get("region");
                 dataModel.region_txt = record.get("region_txt");
                 dataModel.provstate = record.get("provstate");
